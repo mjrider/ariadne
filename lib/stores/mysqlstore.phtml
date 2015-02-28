@@ -534,14 +534,15 @@ class mysqlstore extends store{
 
 
 		$this->error="";
+		$needunlocking = false;
+
 		if ($path!="/") {
 			$parent=$this->make_path($path, "..");
 		} else {
 			$parent="..";
 		}
-		$eparent=AddSlashes($parent);
-		$epath=AddSlashes($path);
-		$efilename=AddSlashes(basename($path));
+
+		$filename = basename($path);
 
 		$edata=AddSlashes(serialize($data));
 		$etype=AddSlashes($type);
@@ -551,38 +552,15 @@ class mysqlstore extends store{
 		$objects_tbl=$this->tbl_prefix."objects";
 		$types_tbl=$this->tbl_prefix."types";
 
-		if (strlen($path)<MAX_PATH_LENGTH) { // initial check
-			if ($id=$this->exists($path)) { //update
-				$result = $path;
-				if ($vtype) { // only change/save vtype if it is explicitly set
-					$evtype=AddSlashes($vtype);
-					$query_string="update $objects_tbl set object='$edata', vtype='$evtype', lastchanged=NULL where id=$id"; 
-				} else {
-					$query_string="update $objects_tbl set object='$edata', lastchanged=NULL where id=$id"; 
-				}
-				$qresult = $this->store_run_query($query_string);
-				if ($qresult !== false) {
-					$this->save_properties($properties, $id, $this); 
-					if($priority !== false) {
-						$query_string="update $nodes_tbl set priority=$epriority where path='$epath'";
-						$qresult = $this->store_run_query($query_string);
-						if ($qresult === false) {
-							debug("save: update object failed!","store");
-							debug("save: ".$this->error,"store");
-							$result=0;
-						}
-					} 
-				} else {
-					debug("save: update object failed!","store");
-					debug("save: ".$this->error,"store");
-					$result=0;
-				}
-			} else { // insert new
+		$id=$this->exists($path);
+
+		switch (true) {
+			case $id === null:
 				if ($vtype=="") { // if vtype is not set, it defaults to type for new objects
 					if ($subcpos = strpos($type, '.')) {
 						$vtype = substr($type, 0, $subcpos);
 					} else {
-						$vtype=$type; 
+						$vtype=$type;
 					}
 				}
 				$evtype=AddSlashes($vtype);
@@ -593,20 +571,44 @@ class mysqlstore extends store{
 					$epriority=(int)$priority;
 				}
 
-				$mask = substr($path, strlen($parent));
-				if (preg_match("/^(.*)\{([0-9]+:)?id\}(.*)/",$mask,$matches)) { 
+				if ($path == '/') {
+					$parent = '..';
+					$eparent = '..';
+				} else {
+					$eparent = AddSlashes($parent);
+					$query_string ="select path from $nodes_tbl where path = '$eparent'";
+					$qresult = $this->store_run_query( $query_string );
+					if ($qresult !== false) {
+						$row = $qresult->fetch_array(MYSQLI_ASSOC);
+						if ($row['path']) {
+							$parent  = $row['path'];
+							$path = $parent . $filename .'/';
+						} else {
+							$this->error = "store:save: could not load path '$eparent'";
+							debug("save: parent path query failed", "store");
+							debug("save: ".$this->error, "store");
+							$result = 0;
+						}
+					} else {
+						debug("save: parent path query failed!","store");
+						debug("save: ".$this->error,"store");
+						$result=0;
+					}
+				}
+
+				$mask = $filename . '/';
+				if (preg_match("/^(.*)\{([0-9]+:)?id\}(.*)/",$mask,$matches)) {
 					// if the last part of a path matches something like {2:id} this
 					// part will automatically create a new number, unique in this directory, and fill it in.
 					// before we proceed, we need to lock the 'nodes' and 'objects' table
-					$query_string="lock tables ".$this->tbl_prefix."nodes write, ".$this->tbl_prefix."objects write";
+					$query_string="lock tables ".$this->tbl_prefix."nodes write";
 					$qresult = $this->store_run_query($query_string);
 					if ($qresult !== false) {
 						$needunlocking = true;
 
 						$subid=$this->get_nextid($parent, $mask);
-						$path=preg_replace("/\{([0-9]+:)?id\}/",strval($subid),$path);
-						$epath=AddSlashes($path);
-						$efilename = basename( $epath );
+						$filename = preg_replace("/\{([0-9]+:)?id\}/",strval($subid),$filename);
+						$path = $parent . $filename . '/';
 					} else {
 						error("PANIC: could not obtain write lock on nodes table!");
 						$this->close();
@@ -615,75 +617,101 @@ class mysqlstore extends store{
 				}
 
 				if (strlen($path)>=MAX_PATH_LENGTH) {
-					// extra check, after rewrite of filename
 					$this->error="ERROR: Maximum path length (".MAX_PATH_LENGTH." characters) exceeded. Please shorten your filenames.";
 					$result=false;
 				} else {
-					if ($path == '/') {
-						$parent = '..';
-						$eparent = '..';
-					} else {
-						$query_string ="select path from $nodes_tbl where path = '$eparent'";
-						$qresult = $this->store_run_query( $query_string );
-						if ($qresult !== false) {
-							$row = $qresult->fetch_array(MYSQLI_ASSOC);
-							if ($row['path']) {
-								$parent  = $row['path'];
-								$eparent = AddSlashes( $parent );
-								$epath   = $eparent . $efilename . '/';
-							} else {
-								$this->error = "store:save: could not load path '$eparent'";
-								debug("save: parent path query failed", "store");
-								debug("save: ".$this->error, "store");
-								$result = 0;
-							}
-						} else {
-							debug("save: parent path query failed!","store");
-							debug("save: ".$this->error,"store");
-							$result=0;
-						}
-					}
-
 					if (!$this->error) {
-						$query_string="insert into $objects_tbl (id,type,object,vtype) values (0,'$etype','$edata','$evtype')";
+						// FIXME: lock before claim
+						// claim path
+						$epath = AddSlashes($path);
+						$eparent = AddSlashes($parent);
+						if($this->exists($path) === 0) {
+							$this->error = "failed to insert new node, placeholder is in the way";
+							debug("save: insert node failed! Placeholder is in the way");
+							debug("save: ".$this->error,"store");
+							return false;
+						}
+
+						$query_string="insert into $nodes_tbl (path,parent,object,priority) values ('$epath', '$eparent', 0, $epriority) ";
 						$qresult = $this->store_run_query($query_string);
-						$id=$this->dbh->insert_id;
-						if ($qresult !== false && $id) {
-							$query_string="insert into $nodes_tbl (path,parent,object,priority) values ('$epath', '$eparent', $id, $epriority)";
+						if ($qresult) {
+
+							// unlock if needed
+							if ($needunlocking) {
+								$query_string = "unlock tables";
+								$this->store_run_query($query_string);
+								$needunlocking = false;
+							}
+
+							// insert object
+							$query_string="insert into $objects_tbl (id,type,object,vtype) values (0,'$etype','$edata','$evtype')";
 							$qresult = $this->store_run_query($query_string);
-							if ($qresult) {
-								if ($needunlocking) {
-									$query_string = "unlock tables";
-									$this->store_run_query($query_string);
-									$needunlocking = false;
+							$id=$this->dbh->insert_id;
+							if ($qresult !== false && $id) {
+								// update claimed path
+								$eid = (int) $id;
+								$query_string="update $nodes_tbl set object=$eid where path='$epath' and object=0;";
+								$qresult = $this->store_run_query($query_string);
+								if ($qresult) {
+									$this->save_properties($properties, $id, $this);
+									$result=$path;
+								} else {
+									debug("save: insert node failed! Could not update node id","store");
+									debug("save: ".$this->error,"store");
+									$result=false;
 								}
-								$this->save_properties($properties, $id, $this);
-								$result=$path;
 							} else {
-								debug("save: insert node failed!","store");
+								debug("save: insert node failed! Could not insert object","store");
 								debug("save: ".$this->error,"store");
-								$result=0;
+								$result=false;
 							}
 						} else {
-							debug("save: insert object failed!","store");
+							debug("save: insert node failed! Could not reserve node entry","store");
 							debug("save: ".$this->error,"store");
-							$result=0;
+							$result=false;
 						}
 					}
 
 				}
-
-				if ($needunlocking) {
-					$query_string = "unlock tables";
-					$this->store_run_query($query_string);
-					$needunlocking = false;
+				break;
+			case $id === 0:
+				$this->error = "Could not update, found placeholder\n";
+				return false;
+				break;
+			case $id > 0:
+				$result = $path;
+				if ($vtype) { // only change/save vtype if it is explicitly set
+					$evtype=AddSlashes($vtype);
+					$query_string="update $objects_tbl set object='$edata', vtype='$evtype', lastchanged=NULL where id=$id";
+				} else {
+					$query_string="update $objects_tbl set object='$edata', lastchanged=NULL where id=$id";
 				}
-			}
-		} else {
-			// path too long
-			$this->error="ERROR: Maximum path length (".MAX_PATH_LENGTH." characters) exceeded. Please shorten your filenames.";
-			$result=false;
+				$qresult = $this->store_run_query($query_string);
+				if ($qresult !== false) {
+					$this->save_properties($properties, $id, $this);
+					if($priority !== false) {
+						$epath=AddSlashes($path);
+						$query_string="update $nodes_tbl set priority=$epriority where path='$epath'";
+						$qresult = $this->store_run_query($query_string);
+						if ($qresult === false) {
+							debug("save: update object failed!","store");
+							debug("save: ".$this->error,"store");
+							$result=0;
+						}
+					}
+				} else {
+					debug("save: update object failed!","store");
+					debug("save: ".$this->error,"store");
+					$result=0;
+				}
+				break;
 		}
+		if ($needunlocking) {
+			$query_string = "unlock tables";
+			$this->store_run_query($query_string);
+			$needunlocking = false;
+		}
+
 		return $result;
 	}
 
@@ -825,7 +853,6 @@ class mysqlstore extends store{
 		if ($qresult && ($row = $qresult->fetch_array(MYSQLI_ASSOC))) {
 			$eparent = AddSlashes($row['path']);
 			$edestination = AddSlashes($eparent.$filename);
-
 
 			if ($this->exists($destination)) {
 				$this->error="$destination already exists, cannot overwrite.";
