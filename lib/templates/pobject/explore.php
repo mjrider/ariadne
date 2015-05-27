@@ -14,7 +14,13 @@
 		$icon 	= $ARCurrent->arTypeIcons[$base_object->type]['medium'] ? $ARCurrent->arTypeIcons[$base_object->type]['medium'] : $base_object->call('system.get.icon.php', array('size' => 'medium'));
 
 		$loader = $this->store->get_config('root');
-		$wwwroot = $AR->dir->www;
+		if ( isset($AR->cdn->asset) ) {
+			$wwwroot = $AR->cdn->asset;
+			$loadurl = $AR->cdn->asset;
+		} else {
+			$wwwroot = $AR->dir->www;
+			$loadurl = $this->make_local_url('',false,false);
+		}
 		$interface = $data->interface;
 
 		$yui_base = $wwwroot . "js/yui/";
@@ -82,7 +88,7 @@
 <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>explore.ie6.css"><![endif]-->
 <link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>login.css">
 
-<script type="text/javascript" src="<?php echo $this->make_local_url('',false,false) . 'ariadne.load.js?' . implode('+', $loadJS ); ?>"></script>
+<script type="text/javascript" src="<?php echo  $loadurl .  'ariadne.load.js?' . implode('+', $loadJS ); ?>"></script>
 
 <script type="text/javascript">
 	// Backwards compatibility hooks - these should be removed in the end.

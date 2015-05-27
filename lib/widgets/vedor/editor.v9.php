@@ -1,7 +1,15 @@
 <?php
     // beun oplossing om om keepurl heen te werken
-	global $ARCurrent,$ARnls;
-	$js_root = $AR->dir->www."js/";
+	global $ARCurrent,$ARnls,$AR;
+	if ( isset($AR->cdn->asset) ) {
+		$wwwroot = $AR->cdn->asset;
+		$loadurl = $AR->cdn->asset;
+	} else {
+		$wwwroot = $AR->dir->www;
+		$loadurl = '';
+	}
+
+	$js_root = $wwwroot."js/";
 	$image_dir=$AR->dir->www.'widgets/vedor/images/';
 	$script_dir=$AR->dir->www.'widgets/vedor/';
 	$style_dir=$AR->dir->www.'widgets/vedor/';
@@ -76,7 +84,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<script type="text/javascript" src="ariadne.load.js?muze+muze.event+muze.form+muze.html+muze.dialog+muze.ariadne.cookie+muze.util.pngfix+muze.util.splitpane+muze.ariadne.registry+muze.ariadne.explore.js"></script>
+	<script type="text/javascript" src="<?php echo $loadurl; ?>ariadne.load.js?muze+muze.event+muze.form+muze.html+muze.dialog+muze.ariadne.cookie+muze.util.pngfix+muze.util.splitpane+muze.ariadne.registry+muze.ariadne.explore.js"></script>
 	<script type="text/javascript" src="<?php echo $js_root; ?>vedor.js"></script>
 
 	<script type="text/javascript" src="<?php echo $js_root; ?>vedor/dom.js"></script>
@@ -110,7 +118,7 @@
 	var objectURL='<?php echo $this->make_local_url(); ?>';
 	var logoffURL='<?php echo $this->make_local_url('', $nls); ?>';
 	var objectURL_nls='<?php echo $this->make_local_url('',$language); ?>';
-	var ariadneRoot='<?php global $AR; echo $AR->dir->www; ?>';
+	var ariadneRoot='<?php echo $AR->dir->www; ?>';
 	var wgSaveTmpl='<?php echo $wgHTMLEditSaveTemplate; ?>';
 	var wgParentURL='<?php echo $this->make_local_url($this->parent); ?>';
 	var wgManageTmpl='<?php echo $wgHTMLEditManageTemplate; ?>';
