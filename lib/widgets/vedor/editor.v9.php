@@ -1,6 +1,7 @@
 <?php
     // beun oplossing om om keepurl heen te werken
 	global $ARCurrent,$ARnls,$AR;
+<<<<<<< HEAD
 	$wwwroot = $AR->dir->www;
 	$loadurl = '';
 
@@ -8,6 +9,20 @@
 	$image_dir=$AR->assets->base.'widgets/vedor/images/';
 	$script_dir=$AR->assets->base.'widgets/vedor/';
 	$style_dir=$AR->assets->base.'widgets/vedor/';
+=======
+	if ( isset($AR->cdn->asset) ) {
+		$wwwroot = $AR->cdn->asset;
+		$loadurl = $AR->cdn->asset;
+	} else {
+		$wwwroot = $AR->dir->www;
+		$loadurl = '';
+	}
+
+	$js_root = $wwwroot."js/";
+	$image_dir=$AR->dir->www.'widgets/vedor/images/';
+	$script_dir=$AR->dir->www.'widgets/vedor/';
+	$style_dir=$AR->dir->www.'widgets/vedor/';
+>>>>>>> 381a67a5871fc6ef24c4433da4e55397760d1a2d
 	if (!$wgHTMLEditTemplate) {
 		if ( $wgVedorEditTemplate ) {
 			$wgHTMLEditTemplate = $wgVedorEditTemplate; // backwards compatible

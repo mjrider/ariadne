@@ -82,7 +82,11 @@
 <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.ie6.css"><![endif]-->
 <link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>login.css">
 
+<<<<<<< HEAD
 <script type="text/javascript" src="<?php echo  $loadurl .  '?' . implode('+', $loadJS ); ?>"></script>
+=======
+<script type="text/javascript" src="<?php echo  $loadurl .  'ariadne.load.js?' . implode('+', $loadJS ); ?>"></script>
+>>>>>>> 381a67a5871fc6ef24c4433da4e55397760d1a2d
 
 <script type="text/javascript">
 	// Backwards compatibility hooks - these should be removed in the end.
