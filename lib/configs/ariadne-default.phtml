@@ -158,7 +158,17 @@
 	}
 	$AR->dir->styles = (string)\arc\path::collapse($AR->dir->styles);
 
-
+	if ($AR->cdn->enable == true) {
+		$AR->assets->js       = (string)new \arc\url\Url( $AR->cdn->baseurl . 'images/');
+		$AR->assets->images   = (string)new \arc\url\Url( $AR->cdn->baseurl . 'images/');
+		$AR->assets->styles   = (string)new \arc\url\Url( $AR->cdn->baseurl . 'styles/' );
+		$AR->assets->loadjs   = (string)new \arc\url\Url( $AR->cdn->baseurl . 'ariadne.load.js');
+	} else {
+		$AR->assets->js       = $AR->dir->www . 'js/';
+		$AR->assets->images   = $AR->dir->images;
+		$AR->assets->styles   = $AR->dir->styles;
+		$AR->assets->loadjs   = 'ariadne.load.js';
+	}
 	/**************************************************************************/
 	/* NLS System                                                             */
 	/* ==========                                                             */
