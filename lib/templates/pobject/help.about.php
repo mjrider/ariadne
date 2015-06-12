@@ -5,7 +5,7 @@ include(AriadneBasePath."/version.php");
 <html>
 	<head>
 		<title><?php echo $ARnls['aboutariadne']; ?></title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->www; ?>styles/login.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>/login.css">
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	</head>
 <body id="login_panel">

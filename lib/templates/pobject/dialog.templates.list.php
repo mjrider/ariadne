@@ -25,8 +25,7 @@
 			$filestore = $this->store->get_filestore("templates");
 		}
 
-		$wwwroot = $AR->dir->www;
-		$yui_base = $wwwroot . "js/yui/";
+		$yui_base = $AR->assets->jsi . "yui/";
 
 		$search = $this->getdata("search");
 

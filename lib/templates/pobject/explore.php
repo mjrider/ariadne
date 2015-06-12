@@ -9,21 +9,15 @@
 		}
 
 		// This set initializes the tree from the user object
-		$path 	= $base_object->path;
-		$name 	= $base_object->nlsdata->name;
-		$icon 	= $ARCurrent->arTypeIcons[$base_object->type]['medium'] ? $ARCurrent->arTypeIcons[$base_object->type]['medium'] : $base_object->call('system.get.icon.php', array('size' => 'medium'));
+		$path = $base_object->path;
+		$name = $base_object->nlsdata->name;
+		$icon = $ARCurrent->arTypeIcons[$base_object->type]['medium'] ? $ARCurrent->arTypeIcons[$base_object->type]['medium'] : $base_object->call('system.get.icon.php', array('size' => 'medium'));
 
-		$loader = $this->store->get_config('root');
-		if ( isset($AR->cdn->asset) ) {
-			$wwwroot = $AR->cdn->asset;
-			$loadurl = $AR->cdn->asset;
-		} else {
-			$wwwroot = $AR->dir->www;
-			$loadurl = $this->make_local_url('',false,false);
-		}
+		$loader    = $this->store->get_config('root');
 		$interface = $data->interface;
 
-		$yui_base = $wwwroot . "js/yui/";
+		$yui_base  = $AR->assets->js . "yui/";
+		$loadurl   = $AR->assets->loadjs;
 
 		$viewmodes = array( "list" => 1, "details" => 1, "icons" => 1);
 		$viewmode = $_COOKIE["viewmode"];
@@ -88,7 +82,7 @@
 <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.ie6.css"><![endif]-->
 <link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>login.css">
 
-<script type="text/javascript" src="<?php echo  $loadurl .  'ariadne.load.js?' . implode('+', $loadJS ); ?>"></script>
+<script type="text/javascript" src="<?php echo  $loadurl .  '?' . implode('+', $loadJS ); ?>"></script>
 
 <script type="text/javascript">
 	// Backwards compatibility hooks - these should be removed in the end.

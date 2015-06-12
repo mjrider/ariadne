@@ -445,23 +445,23 @@
 	}
 
 	.yui-skin-sam .yui-toolbar-container .yui-toolbar-editcode span.yui-toolbar-icon {
-		background-image: url( "<?php echo $AR->dir->www; ?>js/yui/editor/assets/html_editor.gif" );
+		background-image: url( "<?php echo $AR->assets->js; ?>/yui/editor/assets/html_editor.gif" );
 		background-position: 0 1px;
 		left: 5px;
 	}
 	.yui-skin-sam .yui-toolbar-container .yui-button-editcode-selected span.yui-toolbar-icon {
-		background-image: url( "<?php echo $AR->dir->www; ?>js/yui/editor/assets/html_editor.gif" );
+		background-image: url( "<?php echo $AR->assets->js; ?>/yui/editor/assets/html_editor.gif" );
 		background-position: 0 1px;
 		left: 5px;
 	}
 	.yui-skin-sam .yui-toolbar-container .yui-toolbar-save span.yui-toolbar-icon {
-		background-image: url( "<?php echo $AR->dir->www; ?>images/icons/small/save.png");
+		background-image: url( "<?php echo $AR->assets->images; ?>/icons/small/save.png");
 		background-position: 0px 0px;
 		left: 7px;
 		top: 4px;
 	}
 	.yui-skin-sam .yui-toolbar-container .yui-button-save-selected span.yui-toolbar-icon {
-		background-image: url( "<?php echo $AR->dir->www; ?>images/icons/small/save.png");
+		background-image: url( "<?php echo $AR->assets->images; ?>/icons/small/save.png");
 		background-position: 0px 0px;
 		left: 7px;
 		top: 4px;

@@ -33,7 +33,7 @@
 		$wgWizHeader = $wgWizTitle;
 		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svndiff.png';
 
-		$yui_base = $AR->dir->www."js/yui/";
+		$yui_base = $AR->assets->js."/yui/";
 		$wgWizStyleSheets = array(
 			$yui_base . "datatable/assets/skins/sam/datatable.css",
 			$yui_base . "menu/assets/skins/sam/menu.css",

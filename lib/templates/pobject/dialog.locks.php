@@ -41,7 +41,7 @@
 		$spath = $AR->assets->js . "/yui/";
 		$wgWizStyleSheets = array(
 			$spath."datatable/assets/skins/sam/datatable.css",
-			$AR->dir->www . "styles/locks.css"
+			$AR->assets->styles . "/locks.css"
 		);
 
 		$wgWizScripts = array(

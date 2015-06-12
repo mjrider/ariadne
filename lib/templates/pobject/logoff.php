@@ -6,7 +6,7 @@ $pageStart = '
 <html>
 	<head>
 		<title>Ariadne - Access denied</title>
-		<link rel="stylesheet" type="text/css" href="' . $AR->dir->www . 'styles/login.css">
+		<link rel="stylesheet" type="text/css" href="' . $AR->assets->styles . '/login.css">
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	</head>
 <body id="login_panel">
@@ -15,7 +15,7 @@ $pageStart = '
 ';
 
 $pageSubHeader = '
-			Logged off<img class="typeicon" src="' . $AR->dir->www . 'images/icons/large/grants.png" alt="Login">
+			Logged off<img class="typeicon" src="' . $AR->assets->images . '/icons/large/grants.png" alt="Login">
 		</div>
 		<div id="sectiondata" class="nosections notfixed">
 			<div id="tabs"></div>

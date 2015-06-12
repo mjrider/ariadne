@@ -75,9 +75,9 @@
 		}
 	</style>
 
-	<script type="text/javascript" src="<?php echo $AR->dir->www; ?>js/ace/ace.js" charset="utf-8"></script>
-	<script type="text/javascript" src="<?php echo $AR->dir->www; ?>js/ace/theme-eclipse.js" charset="utf-8"></script>
-	<script type="text/javascript" src="<?php echo $AR->dir->www; ?>js/ace/mode-php.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo $AR->assets->js; ?>/ace/ace.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo $AR->assets->js; ?>/ace/theme-eclipse.js" charset="utf-8"></script>
+	<script type="text/javascript" src="<?php echo $AR->assets->js; ?>/ace/mode-php.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		var editor = null;
 		window.onload = function() {
