@@ -13,13 +13,13 @@
 			array(
 				'label' => $ARnls['ariadne:folders'],
 				'iconalt' => $ARnls['ariadne:folders'],
-				'icon' => $AR->dir->images . 'icons/small/view_tree.png',
+				'icon' => $AR->assets->images . 'icons/small/view_tree.png',
 				'href' => "#",
 				'onclick' => 'document.body.classList.toggle("tree"); muze.ariadne.explore.tree.toggle(); return false;'
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:iconview'],
-				'icon' => $AR->dir->images . 'icons/small/view_icon.png',
+				'icon' => $AR->assets->images . 'icons/small/view_icon.png',
 				'onclick' => 'return false;',
 				'submenu' => array(
 					array(
@@ -38,7 +38,7 @@
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:up'],
-				'icon' => $AR->dir->images . 'icons/small/up.png',
+				'icon' => $AR->assets->images . 'icons/small/up.png',
 				//'href' => "javascript:muze.ariadne.explore.view('" . $this->parent . "');"
 				'href' => $this->make_ariadne_url($this->parent) . "dialog.browse.php",
 				'onclick' => "muze.ariadne.explore.toolbar.viewparent(); return false;",
@@ -46,14 +46,14 @@
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:delete'],
-				'icon' => $AR->dir->images . 'icons/small/delete.png',
+				'icon' => $AR->assets->images . 'icons/small/delete.png',
 				'href' => $this->make_ariadne_url() . "dialog.delete.php",
 				'id' => 'explore_toolbar_delete',
 				'onclick' => "muze.ariadne.explore.dialog.deleteselected(this.href); return false;"
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:rename'],
-				'icon' => $AR->dir->images . 'icons/small/rename.png',
+				'icon' => $AR->assets->images . 'icons/small/rename.png',
 				'href' => $this->make_ariadne_url() . "dialog.rename.php",
 				'id' => 'explore_toolbar_rename',
 				'onclick' => "muze.ariadne.explore.dialog.rename(this.href); return false;"
@@ -168,10 +168,10 @@
 <script type="text/javascript" src="<?php echo $yui_base;?>container/container-min.js"></script>
 <script type="text/javascript" src="<?php echo $yui_base;?>autocomplete/autocomplete-min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>explore.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>browse.css">
-<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>wizard.css">
-<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>explore.ie6.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>browse.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>wizard.css">
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.ie6.css"><![endif]-->
 
 <script type="text/javascript" src="<?php echo $wwwroot; ?>js/muze.js"></script>
 <script type="text/javascript" src="<?php echo $wwwroot; ?>js/muze/event.js"></script>
@@ -355,7 +355,7 @@
 			ar::call('ariadne.logo.html');
 		?>
 		<span class="text">Browse</span>
-		<img class="typeicon" src="<?php echo $AR->dir->images; ?>icons/large/search.png" alt="Browse">
+		<img class="typeicon" src="<?php echo $AR->assets->images; ?>icons/large/search.png" alt="Browse">
 	</div>
 
 	<div id="sectiondata" class="nosections">

@@ -33,9 +33,9 @@
 
 		$wgWizTitle=$ARnls['ariadne:svn:resolved'];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/svnconflict.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svnconflict.png';
 
-		$wgWizStyleSheets = array( $AR->dir->styles."svn.css" );
+		$wgWizStyleSheets = array( $AR->assets->styles."svn.css" );
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

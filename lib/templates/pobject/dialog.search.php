@@ -21,23 +21,23 @@
 
 		$wgWizFlow[] = array(
 			"title" => $ARnls["contextsearch"],
-			"image" => $AR->dir->images.'wizard/data.png',
+			"image" => $AR->assets->images.'wizard/data.png',
 			"template" => "dialog.search.context.php",
 		);
 
 		$wgWizFlow[] = array(
 			"title" => $ARnls["advancedsearch"],
-			"image" => $AR->dir->images.'wizard/data.png',
+			"image" => $AR->assets->images.'wizard/data.png',
 			"template" => "dialog.search.advanced.php",
 		);
 
 
 		// spawn wizard
-		$wgWizHeaderIcon = $AR->dir->images . 'icons/large/search.png';
+		$wgWizHeaderIcon = $AR->assets->images . 'icons/large/search.png';
 		$wgWizTitle=$ARnls["search"];
 		$wgWizHeader=$wgWizTitle;
 
-		$spath = $AR->dir->www . "js/yui/";
+		$spath = $AR->assets->js . "/yui/";
 		$wgWizStyleSheets = array(
 			$spath."datatable/assets/skins/sam/datatable.css",
 		);

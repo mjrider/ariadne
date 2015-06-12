@@ -33,7 +33,7 @@
 			$wgWizFlow[0][$linktype] = "dialog.hyperlink." . $linktype . ".form.php";
 			$wgWizFlow[] = array(
 				"title" => $settings['name'],
-				"image" => $AR->dir->images . 'wizard/hyperlink.' . $linktype. '.png', // FIXME: give this a decent icon or no icon
+				"image" => $AR->assets->images . 'wizard/hyperlink.' . $linktype. '.png', // FIXME: give this a decent icon or no icon
 				"template" => "dialog.hyperlink." . $linktype . ".form.php"
 			);
 			$revLookup[$linktype] = $counter;
@@ -44,7 +44,7 @@
 		$name=$ARCurrent->arTypeNames[$this->type];
 
 		// spawn wizard
-		$wgWizHeaderIcon = $AR->dir->images . 'wizard/hyperlink.png';
+		$wgWizHeaderIcon = $AR->assets->images . 'wizard/hyperlink.png';
 		$wgWizTitle=$ARnls["ariadne:editor:hyperlinkedit"];
 		$wgWizHeader=$wgWizTitle;
 		$wgWizNextStep = $this->getdata('wgWizNextStep');

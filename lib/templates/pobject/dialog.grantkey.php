@@ -25,7 +25,7 @@
 
 		$wgWizTitle = $ARnls["ariadne:grantkey"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/grants.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/grants.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

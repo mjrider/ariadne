@@ -36,8 +36,8 @@
 
 		$wgWizTitle = $ARnls["add"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/add.png';
-		$wgWizStyleSheets = array( $AR->dir->styles.'dialog.add.css' );
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/add.png';
+		$wgWizStyleSheets = array( $AR->assets->styles.'dialog.add.css' );
 		include( $this->store->get_config("code")."widgets/wizard/yui.wizard.html" );
 	}
 ?>

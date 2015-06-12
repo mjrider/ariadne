@@ -73,9 +73,9 @@
 				$class = "unselected";
 			}
 			if( $this->data->{$key}->name ) {
-				echo "<a class='$class' href='#' onClick=\"muze.ariadne.explore.setnls('" . $key . "'); return false;\" title=\"".htmlspecialchars($value)."\"><img class=\"flag\" src=\"".$AR->dir->images."nls/small/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"></a> ";
+				echo "<a class='$class' href='#' onClick=\"muze.ariadne.explore.setnls('" . $key . "'); return false;\" title=\"".htmlspecialchars($value)."\"><img class=\"flag\" src=\"".$AR->assets->images."nls/small/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"></a> ";
 			} else {
-				echo "<a class='$class' href='#' onClick=\"muze.ariadne.explore.setnls('" . $key . "'); return false;\" title=\"".htmlspecialchars($value)."\"><img class=\"flag\" src=\"".$AR->dir->images."nls/small/faded/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"></a> ";
+				echo "<a class='$class' href='#' onClick=\"muze.ariadne.explore.setnls('" . $key . "'); return false;\" title=\"".htmlspecialchars($value)."\"><img class=\"flag\" src=\"".$AR->assets->images."nls/small/faded/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"></a> ";
 			}
 		}
 	}

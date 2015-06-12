@@ -39,14 +39,14 @@
 
 		if ($svn_status) {
 			$svn['status'] = 'insubversion';
-			$svn_icon = $AR->dir->images . 'svn/InSubVersionIcon.png';
+			$svn_icon = $AR->assets->images . 'svn/InSubVersionIcon.png';
 			foreach ($svn_status as $key => $value) {
 				if ( ( substr($key, -5) == ".pinp"  || $key === '/' ) && (
 					$value['wc-status']['item']  != 'normal'  ||
 					$value['wc-status']['props'] != 'normal' 
 				) ){
 					$svn['status'] = 'modified';
-					$svn_icon = $AR->dir->images . 'svn/ModifiedIcon.png';
+					$svn_icon = $AR->assets->images . 'svn/ModifiedIcon.png';
 					break;
 				}
 			}

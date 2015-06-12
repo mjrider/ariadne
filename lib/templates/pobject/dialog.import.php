@@ -37,7 +37,7 @@
 		$wgWizTitle=$ARnls["importobject"];
 
 		$wgWizHeader=$wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/import.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/import.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

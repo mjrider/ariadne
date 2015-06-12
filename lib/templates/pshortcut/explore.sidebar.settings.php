@@ -13,7 +13,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.templates.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.templates', this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/templates.png',
+				'icon' => $AR->assets->images . 'icons/small/templates.png',
 				'nlslabel' => $ARnls['templates']
 			);
 			if ($this->data->config->pinp) {
@@ -24,7 +24,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.custom.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.custom',this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/customfields.png',
+				'icon' => $AR->assets->images . 'icons/small/customfields.png',
 				'nlslabel' => $ARnls["ariadne:customfields"]
 			);
 			if ($this->data->config->customconfig) {
@@ -35,7 +35,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.language.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.language',this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/language.png',
+				'icon' => $AR->assets->images . 'icons/small/language.png',
 				'nlslabel' => $ARnls['language']
 			);
 			if ($this->data->config->nlsconfig) {
@@ -48,7 +48,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.grants.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.grants',this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/grants.png',
+				'icon' => $AR->assets->images . 'icons/small/grants.png',
 				'nlslabel' => $ARnls['grants']
 			);
 			if($this->data->config->grants) {
@@ -58,7 +58,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.owner.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.owner', this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/owner.png',
+				'icon' => $AR->assets->images . 'icons/small/owner.png',
 				'nlslabel' => $ARnls['owner']
 			);
 			$settings[] = $task;
@@ -68,7 +68,7 @@
 			$task = array(
 				'href' => $this->make_ariadne_url() . "dialog.priority.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.priority',this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/priority.png',
+				'icon' => $AR->assets->images . 'icons/small/priority.png',
 				'nlslabel' => $ARnls['priority']
 			);
 			$settings[] = $task;
@@ -79,7 +79,7 @@
 			'label' => $ARnls['ariadne:settings'],
 			'tasks' => $settings
 		);
-		$section = $this->call('explore.sidebar.tasks.extra.html', array("section" => $section, "images" => $AR->dir->images));
+		$section = $this->call('explore.sidebar.tasks.extra.html', array("section" => $section, "images" => $AR->assets->images));
 		if (count($section['tasks'])) {
 			if (!$ARCurrent->arTypeTree) {
 				$this->call('typetree.ini');

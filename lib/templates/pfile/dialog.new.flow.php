@@ -6,7 +6,7 @@
 		$arResult[0] = $wgWizFlow[0];
 		$arResult[] = array(
 			"title" => $ARnls["uploadfile"],
-			"image" => $AR->dir->images."wizard/upload.png",
+			"image" => $AR->assets->images."wizard/upload.png",
 			"template" => "dialog.new.upload.php",
 		);
 		foreach( $wgWizFlow as $k => $flow ) {

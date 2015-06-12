@@ -39,13 +39,13 @@
 		foreach( $languages as $key => $nlskey ) {
 			$language=$AR->nls->list[$nlskey];
 			if (($this->data->config->nls->list[$nlskey]) || ($this->getdata('name',$nlskey))) {
-				$image=$AR->dir->images."nls/small/".$nlskey.".gif";
+				$image=$AR->assets->images."nls/small/".$nlskey.".gif";
 			} else {
-				$image=$AR->dir->images."nls/small/faded/".$nlskey.".gif";
+				$image=$AR->assets->images."nls/small/faded/".$nlskey.".gif";
 			}
 			if ($nlskey==$arLanguage) {
 				$class="tab-selected";
-				$image=$AR->dir->images."nls/small/".$nlskey.".gif";
+				$image=$AR->assets->images."nls/small/".$nlskey.".gif";
 			} else {
 				$class="tab";
 			}

@@ -4,7 +4,7 @@
 	if ($this->CheckSilent("read") && $this->CheckConfig()) {
 ?>
 	<fieldset id="data">
-	<legend><?php printf($ARnls["err:cannotlockobject"],$this->path); ?></legend><img src="<?php echo $AR->dir->images; ?>dot.gif" alt="" width="1" height="1"><br>
+	<legend><?php printf($ARnls["err:cannotlockobject"],$this->path); ?></legend><img src="<?php echo $AR->assets->images; ?>dot.gif" alt="" width="1" height="1"><br>
 	<table border="0" align="center" width="90%">
 	<tr>
 		<th align="left" width="400">

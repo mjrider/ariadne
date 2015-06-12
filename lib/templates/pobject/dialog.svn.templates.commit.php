@@ -33,7 +33,7 @@
 
 		$wgWizTitle=$ARnls['ariadne:svn:commit'];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/svncommit.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svncommit.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

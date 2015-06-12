@@ -288,9 +288,9 @@
 								}
 							}
 
-							$flag = "<img src=\"".$AR->dir->images."nls/small/$language.gif\" alt=\"".$AR->nls->list[$language]."\">";
+							$flag = "<img src=\"".$AR->assets->images."nls/small/$language.gif\" alt=\"".$AR->nls->list[$language]."\">";
 							if ($svn_enabled && (count($templatelist) > 1) && $svn_img ) {
-								$svn_img_src = $AR->dir->images . "/svn/$svn_img";
+								$svn_img_src = $AR->assets->images . "/svn/$svn_img";
 								$flag_svn = '<img class="flag_svn_icon" alt="' . $svn_alt . '" src="' . $svn_img_src . '">';
 							}
 
@@ -320,7 +320,7 @@
 								<?php
 									if ($svn_enabled) {
 										if ($svn_img) {
-											$svn_img_src = $AR->dir->images . "/svn/$svn_img";
+											$svn_img_src = $AR->assets->images . "/svn/$svn_img";
 											?><img class="svn_icon" alt="<?php echo $svn_alt; ?>" src="<?php echo $svn_img_src;?>"><?php
 										}
 									}
@@ -332,10 +332,10 @@
 								<?php echo $type; ?>&nbsp;</div></td>
 							<td align="left"><div style="display:none;"><?php echo $function; ?></div><div class="<?php echo $svn_style; ?>"><?php
 								if (!$templates[$type][$function]) {
-									echo "<img class='local' src='{$AR->dir->images}local.gif' alt='local'>&nbsp;";
+									echo "<img class='local' src='{$AR->assets->images}local.gif' alt='local'>&nbsp;";
 								}
 								if ($privatetemplates[$type][$function]) {
-									echo "<img class='private' src='{$AR->dir->images}private.png' alt='" . $ARnls['ariadne:template:private'] . "' title='" . $ARnls['ariadne:template:private'] . "'>";
+									echo "<img class='private' src='{$AR->assets->images}private.png' alt='" . $ARnls['ariadne:template:private'] . "' title='" . $ARnls['ariadne:template:private'] . "'>";
 								}
 							?>
 							<?php echo $function; ?></div>

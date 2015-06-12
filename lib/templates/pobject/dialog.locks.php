@@ -38,7 +38,7 @@
 			);
 		}
 
-		$spath = $AR->dir->www . "js/yui/";
+		$spath = $AR->assets->js . "/yui/";
 		$wgWizStyleSheets = array(
 			$spath."datatable/assets/skins/sam/datatable.css",
 			$AR->dir->www . "styles/locks.css"
@@ -52,7 +52,7 @@
 
 		$wgWizTitle = sprintf($ARnls["openlocks"], $nlsdata->name);
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/grants.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/grants.png';
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}
 ?>

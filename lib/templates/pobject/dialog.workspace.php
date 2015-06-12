@@ -31,14 +31,14 @@
 
 		$wgWizTitle=$ARnls["ariadne:workspace:manage_workspace"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/svndiff.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svndiff.png';
 
 		$yui_base = $AR->dir->www."js/yui/";
 		$wgWizStyleSheets = array(
 			$yui_base . "datatable/assets/skins/sam/datatable.css",
 			$yui_base . "menu/assets/skins/sam/menu.css",
 			$yui_base . "container/assets/skins/sam/container.css",
-			$AR->dir->styles."templates.css",
+			$AR->assets->styles."templates.css",
 
 		);
 

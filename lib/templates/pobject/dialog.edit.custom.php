@@ -8,9 +8,9 @@
 		}
 		$selectednls=$arLanguage;
 		$selectedlanguage=$ARConfig->nls->list[$arLanguage];
-		$flagsrc=$AR->dir->images."nls/small/$selectednls.gif";
+		$flagsrc=$AR->assets->images."nls/small/$selectednls.gif";
 		$flag="<img src=\"$flagsrc\" alt=\"$selectedlanguage\">";
-		$any=$AR->dir->images."nls/small/any.gif";
+		$any=$AR->assets->images."nls/small/any.gif";
 ?>
 <script>
 
@@ -189,7 +189,7 @@
 <tr>
 	<td>
 		<fieldset>
-		<legend><?php echo $ARnls["customdata"]; ?></legend><img src="<?php echo $AR->dir->images; ?>dot.gif" alt="" width="1" height="1"><br>
+		<legend><?php echo $ARnls["customdata"]; ?></legend><img src="<?php echo $AR->assets->images; ?>dot.gif" alt="" width="1" height="1"><br>
 			<table border="0" width="100%" align="center" cellspacing="4" vspace="10" hspace="10">
 			<tr>
 				<td valign="top">

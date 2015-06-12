@@ -8,7 +8,7 @@
 		$selectednls=$arLanguage;
 		$selectedlanguage=$AR->nls->list[$arLanguage];
 
-		$flagurl = $AR->dir->images."nls/small/$selectednls.gif";
+		$flagurl = $AR->assets->images."nls/small/$selectednls.gif";
 ?>
 <fieldset id="data">
 	<legend><?php echo $ARnls["data"]; ?></legend>

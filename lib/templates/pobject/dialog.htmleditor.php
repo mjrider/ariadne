@@ -36,7 +36,7 @@
 			if ($file) {
 				$file.="/";
 			}
-			$yui_base = $AR->dir->www . "js/yui/";
+			$yui_base = $AR->assets->js . "/yui/";
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>

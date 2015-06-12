@@ -10,7 +10,7 @@
 		$selectednls=$arLanguage;
 		$selectedlanguage=$ARConfig->nls->list[$arLanguage];
 
-		$flagurl = $AR->dir->images."nls/small/$selectednls.gif";
+		$flagurl = $AR->assets->images."nls/small/$selectednls.gif";
 
 		$userConfig = $this->loadUserConfig();
 		if ($userConfig['defaults']['publish']['publishScenarioDirs']) {

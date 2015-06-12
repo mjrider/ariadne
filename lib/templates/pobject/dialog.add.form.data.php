@@ -36,14 +36,14 @@
 		// inject filename step
 		$wgWizFlow[] = array(
 			"title" => $ARnls["ariadne:new:filename"],
-			"image" => $AR->dir->images.'wizard/info.png',
+			"image" => $AR->assets->images.'wizard/info.png',
 			"template" => "dialog.new.filename.php",
 			"nolang" => true
 		);
 
 		$wgWizFlow[] = array(
 			"title" => $ARnls["data"],
-			"image" => $AR->dir->images.'wizard/data.png',
+			"image" => $AR->assets->images.'wizard/data.png',
 			"template" => "dialog.edit.form.php"
 		);
 
@@ -58,7 +58,7 @@
 		if ( false && $hascustomdata ) { // Skip custom data for now, it doesn't play nice with the rest.
 			$wgWizFlow[] = array(
 				"title" => $ARnls["customdata"],
-				"image" => $AR->dir->images.'wizard/customdata.png',
+				"image" => $AR->assets->images.'wizard/customdata.png',
 				"template" => "dialog.edit.custom.php"
 			);
 		}

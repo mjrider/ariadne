@@ -34,7 +34,7 @@
 
 		$wgWizTitle=$ARnls['ariadne:svn:unsvn'];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/unsvn.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/unsvn.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

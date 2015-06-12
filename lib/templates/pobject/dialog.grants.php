@@ -47,15 +47,15 @@
 		}
 
 		$wgWizScripts = array(
-			$AR->dir->www . "js/muze.js",
-			$AR->dir->www . "js/muze/event.js",
-			$AR->dir->www . "js/muze/dialog.js"
+			$AR->assets->js . "/muze.js",
+			$AR->assets->js . "/muze/event.js",
+			$AR->assets->js . "/muze/dialog.js"
 		);
 
 		$wgWizTitle=$ARnls["grants"];
-		$wgWizStyleSheets = array( $AR->dir->styles."grants.css" );
+		$wgWizStyleSheets = array( $AR->assets->styles."grants.css" );
 		$wgWizHeader=$wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/grants.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/grants.png';
 		$wgWizBufferOutput = true; // Allow sending headers
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");

@@ -15,7 +15,7 @@
 		$wgWizAction = $this->getdata("wgWizAction");
 
 		if( $wgWizAction == "save" ) {
-			$wgWizStyleSheets = array( $AR->dir->styles."svn.css" );
+			$wgWizStyleSheets = array( $AR->assets->styles."svn.css" );
 
 			$wgWizButtons = array(
 				"cancel" => array(
@@ -35,7 +35,7 @@
 
 		$wgWizTitle=$ARnls['ariadne:svn:update_recursive'];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/svnupdate.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svnupdate.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

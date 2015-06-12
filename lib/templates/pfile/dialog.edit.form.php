@@ -8,7 +8,7 @@
 		$selectednls=$arLanguage;
 		$selectedlanguage=$AR->nls->list[$arLanguage];
 
-		$flagurl = $AR->dir->images."nls/small/$selectednls.gif";
+		$flagurl = $AR->assets->images."nls/small/$selectednls.gif";
 
 		$mimetype = $this->getdata("mimetype", $selectednls);
 		if(!$mimetype) {

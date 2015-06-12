@@ -208,7 +208,7 @@
 						$grant_strings = getGrantString($id, $type, $grants, $grey);
 						$grant_string = $grant_strings[0];
 						$grant_html = $grant_strings[1];
-						$icon = $AR->dir->images . "icons/small/" . $type . ".png";
+						$icon = $AR->assets->images . "icons/small/" . $type . ".png";
 
 						?>
 						<script type="text/javascript">

@@ -19,9 +19,9 @@
 
 		$wgWizTitle=$ARnls['ariadne:svn:info'];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/svninfo.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/svninfo.png';
 
-		$wgWizStyleSheets = array( $AR->dir->styles."svn.css" );
+		$wgWizStyleSheets = array( $AR->assets->styles."svn.css" );
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

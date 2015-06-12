@@ -25,7 +25,7 @@
 
 		$wgWizTitle = $ARnls["priority"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/priority.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/priority.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

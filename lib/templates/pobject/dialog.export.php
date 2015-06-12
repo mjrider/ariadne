@@ -34,7 +34,7 @@
 		$wgWizTitle=$ARnls["ariadne:export"]." ".$nlsdata->name;
 
 		$wgWizHeader=$wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/export.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/export.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 //	}

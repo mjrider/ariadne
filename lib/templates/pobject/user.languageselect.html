@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<title>Ariadne - <?php echo $ARnls["ariadne:selectlanguage"]; ?></title>
-		<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>login.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>login.css">
 		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	</head>
 <body id="login_panel">
@@ -21,7 +21,7 @@
 			<?php
 				ar::call('ariadne.logo.html');
 				echo $ARnls["ariadne:selectlanguage"]; 
-			?><img class="typeicon" src="<?php echo $AR->dir->images.'icons/large/language.png'; ?>" alt="<?php echo $ARnls["selectlanguage"]; ?>">
+			?><img class="typeicon" src="<?php echo $AR->assets->images.'icons/large/language.png'; ?>" alt="<?php echo $ARnls["selectlanguage"]; ?>">
 		</div>
 		<div id="sectiondata" class="nosections notfixed">
 			<div id="tabs"></div>
@@ -42,7 +42,7 @@
 	foreach( $ARConfig->nls->list as $arnls => $arlanguage ) {
 		// now list all non-selected-language variables
 		// $arlanguage=htmlentities($arlanguage);
-		$image=$AR->dir->images.'nls/'.$arnls.'.gif';
+		$image=$AR->assets->images.'nls/'.$arnls.'.gif';
 		if (isset($this->data->nls->list[$arnls])) {
 			ldSetNls($arnls);
 ?>

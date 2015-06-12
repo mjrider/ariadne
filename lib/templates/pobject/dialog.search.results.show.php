@@ -39,7 +39,7 @@
 	asort($this->data->nls->list);
     reset($this->data->nls->list);
     foreach( $this->data->nls->list as $key => $value ) {
-      echo "<img src=\"".$AR->dir->images."nls/small/".$key.".gif\" alt=\"".htmlentities($value)."\"> ";
+      echo "<img src=\"".$AR->assets->images."nls/small/".$key.".gif\" alt=\"".htmlentities($value)."\"> ";
     }
   }
 ?></td>

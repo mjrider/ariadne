@@ -34,7 +34,7 @@
 
 		$wgWizTitle=$ARnls["ariadne:su"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/grants.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/grants.png';
 
 		$wgWizBufferOutput = true; // Allow sending headers
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");

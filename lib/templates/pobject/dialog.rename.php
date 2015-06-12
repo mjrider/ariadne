@@ -34,7 +34,7 @@
 
 		$wgWizTitle = $ARnls["rename"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/rename.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/rename.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 //	}

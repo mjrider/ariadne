@@ -34,7 +34,7 @@
 
 		$wgWizTitle=$ARnls["delete"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/delete.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/delete.png';
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 //	}
 ?>

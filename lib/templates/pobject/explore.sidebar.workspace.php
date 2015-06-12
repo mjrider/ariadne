@@ -7,7 +7,7 @@
 		require_once($this->store->get_config("code")."modules/mod_workspace.php");
 
 		if (workspace::enabled($this->path) && getenv("ARIADNE_WORKSPACE")) {
-			$imagesdir = $AR->dir->images;
+			$imagesdir = $AR->assets->images;
 			$status = workspace::status($this->path);
 
 			if ($status['hardlinks']) {

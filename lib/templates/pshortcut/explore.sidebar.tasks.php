@@ -14,7 +14,7 @@
 			$tasks[] = array(
 				'href' => $this->make_ariadne_url() . "dialog.edit.shortcut.php",
 				'onclick' => "muze.ariadne.explore.arshow('dialog.edit.shortcut',this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/edit.png',
+				'icon' => $AR->assets->images . 'icons/small/edit.png',
 				'nlslabel' => $ARnls['ariadne:edit']
 			);
 		}
@@ -22,14 +22,14 @@
 			$tasks[] = array(
 				'href' => $this->make_ariadne_url() . "dialog.rename.php",
 				'onclick' => "muze.ariadne.explore.dialog.rename(this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/rename.png',
+				'icon' => $AR->assets->images . 'icons/small/rename.png',
 				'nlslabel' => $ARnls['ariadne:rename']
 			);
 		}
 		$tasks[] = array(
 			'href' => $this->make_ariadne_url() . "dialog.copy.php",
 			'onclick' => "muze.ariadne.explore.dialog.copy(this.href); return false;",
-			'icon' => $AR->dir->images . 'icons/small/copy.png',
+			'icon' => $AR->assets->images . 'icons/small/copy.png',
 			'nlslabel' => $ARnls['ariadne:copy']
 		);
 
@@ -37,7 +37,7 @@
 			$tasks[] = array(
 				'href' => $this->make_ariadne_url() . "dialog.delete.php",
 				'onclick' => "muze.ariadne.explore.dialog.delete(this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/delete.png',
+				'icon' => $AR->assets->images . 'icons/small/delete.png',
 				'nlslabel' => $ARnls['ariadne:delete']
 			);
 		}
@@ -46,7 +46,7 @@
 			$tasks[] = array(
 				'href' => $this->make_ariadne_url() . "dialog.mogrify.php",
 				'onclick' => "muze.ariadne.explore.dialog.mogrify(this.href); return false;",
-				'icon' => $AR->dir->images . 'icons/small/mogrify.png',
+				'icon' => $AR->assets->images . 'icons/small/mogrify.png',
 				'nlslabel' => $ARnls['ariadne:mogrify']
 			);
 		}
@@ -54,7 +54,7 @@
 		$tasks[] = array( // we use make_local_url specifically
 			'href' => $this->make_local_url()."view.html",
 			'onclick' => "muze.ariadne.explore.arshow('_new', this.href); return false;",
-			'icon' => $AR->dir->images . 'icons/small/viewweb.png',
+			'icon' => $AR->assets->images . 'icons/small/viewweb.png',
 			'nlslabel' => $ARnls['ariadne:viewweb']
 		);
 
@@ -66,7 +66,7 @@
 			'inline_iconalt' => $this->type
 		);
 
-		$section = $this->call('explore.sidebar.tasks.extra.html', array("section" => $section, "images" => $AR->dir->images));
+		$section = $this->call('explore.sidebar.tasks.extra.html', array("section" => $section, "images" => $AR->assets->images));
 		echo yui::getSection($section);
 	}
 ?>

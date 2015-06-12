@@ -37,10 +37,10 @@
 			asort($AR->nls->list);
 			while (list($arnls, $value)=each($AR->nls->list)) {
 				if ($languagelist[$arnls]) {
-					$image=$AR->dir->images.'nls/small/'.$arnls.'.gif';
+					$image=$AR->assets->images.'nls/small/'.$arnls.'.gif';
 					$selected=" checked";
 				} else {
-					$image=$AR->dir->images.'nls/small/faded/'.$arnls.'.gif';
+					$image=$AR->assets->images.'nls/small/faded/'.$arnls.'.gif';
 					$selected="";
 				}
 				?>
@@ -70,9 +70,9 @@
 		function setImage(nls) {
 			var checkbox=document.getElementById('checkbox_'+nls);
 			if (checkbox.checked) {
-				document.images['flag_'+nls].src='<?php echo $AR->dir->images.'nls/small/'; ?>'+nls+'.gif';
+				document.images['flag_'+nls].src='<?php echo $AR->assets->images.'nls/small/'; ?>'+nls+'.gif';
 			} else {
-				document.images['flag_'+nls].src='<?php echo $AR->dir->images.'nls/small/faded/'; ?>'+nls+'.gif';
+				document.images['flag_'+nls].src='<?php echo $AR->assets->images.'nls/small/faded/'; ?>'+nls+'.gif';
 			}
 			return false;
 		}

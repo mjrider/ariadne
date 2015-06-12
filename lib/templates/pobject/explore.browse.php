@@ -83,7 +83,7 @@
 
 				if (is_array($item['language'])) {
 					foreach( $item['language'] as $key => $value ) {
-						$datarow['language'] .= "<img class=\"flag\" src=\"".$AR->dir->images."nls/small/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"> ";
+						$datarow['language'] .= "<img class=\"flag\" src=\"".$AR->assets->images."nls/small/".$key.".gif\" alt=\"".htmlspecialchars($value)."\"> ";
 					}
 				}
 				array_push($datalist, $datarow);

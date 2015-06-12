@@ -6,7 +6,7 @@
 		$to=mktime(0,0,0,12,31,2037);
 	}
 	if ($data->repeat!="none") {
-		$img="<img src=\"".$AR->dir->images."calendar/repeat.gif\" border=\"0\" alt=\"[repeating]\" width=\"16\" height=\"16\" align=\"right\">";
+		$img="<img src=\"".$AR->assets->images."calendar/repeat.gif\" border=\"0\" alt=\"[repeating]\" width=\"16\" height=\"16\" align=\"right\">";
 	}
 	if ($data->timeframes) { // old pcalitems didn't set this
 		end($data->timeframes);

@@ -47,7 +47,7 @@
 		?>
 			<fieldset id="selectstart">
 				<legend><?php echo $ARnls['start']; ?></legend>
-				<img src="<?php echo $AR->dir->images; ?>dot.gif" alt="" width="1" height="1"><br>
+				<img src="<?php echo $AR->assets->images; ?>dot.gif" alt="" width="1" height="1"><br>
 				<table border="0" align="center" width="90%">
 					<tr>
 						<td>
@@ -95,7 +95,7 @@
 
 			<fieldset id="selectend">
 				<legend><?php echo $ARnls["end"]; ?></legend>
-				<img src="<?php echo $AR->dir->images; ?>dot.gif" alt="" width="1" height="1"><br>
+				<img src="<?php echo $AR->assets->images; ?>dot.gif" alt="" width="1" height="1"><br>
 				<table border="0" align="center" width="90%">
 					<tr>
 						<td>
@@ -123,7 +123,7 @@
 
 			<fieldset id="scenarioeffect">
 				<legend><?php echo $ARnls["effect"]; ?></legend>
-				<img src="<?php echo $AR->dir->images; ?>dot.gif" alt="" width="1" height="1"><br>
+				<img src="<?php echo $AR->assets->images; ?>dot.gif" alt="" width="1" height="1"><br>
 				<table border="0" align="center">
 					<tr>
 						<td>

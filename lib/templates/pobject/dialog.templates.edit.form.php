@@ -161,7 +161,7 @@
 				$svn_alt = $ARnls['ariadne:svn:insubversion'];
 				break;
 		}
-		$svn_img_src = $AR->dir->images . "/svn/$svn_img";
+		$svn_img_src = $AR->assets->images . "/svn/$svn_img";
 ?>
 					<li class="yuimenubaritem">
 						<a class="yuimenubaritemlabel" href="#"><?php

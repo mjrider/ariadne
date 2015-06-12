@@ -21,7 +21,7 @@
 		);
 		$wgWizFlow[] = array(
 			"title" => $ARnls['settings'],
-			"image" => $AR->dir->images . 'wizard/data.png', // FIXME: give this a decent icon or no icon
+			"image" => $AR->assets->images . 'wizard/data.png', // FIXME: give this a decent icon or no icon
 			"template" => "dialog.image.form.php"
 		);
 
@@ -29,12 +29,12 @@
 		$name=$ARCurrent->arTypeNames[$this->type];
 
 		$wgWizScripts = array(
-			$AR->dir->www . "js/muze.js",
-			$AR->dir->www . "js/muze/event.js",
-			$AR->dir->www . "js/muze/dialog.js"
+			$AR->assets->js . "/muze.js",
+			$AR->assets->js . "/muze/event.js",
+			$AR->assets->js . "/muze/dialog.js"
 		);
 		// spawn wizard
-		$wgWizHeaderIcon = $AR->dir->images . 'icons/large/pphoto.png';
+		$wgWizHeaderIcon = $AR->assets->images . 'icons/large/pphoto.png';
 		$wgWizTitle=$ARnls["ariadne:editor:imageedit"];
 		$wgWizHeader=$wgWizTitle;
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");

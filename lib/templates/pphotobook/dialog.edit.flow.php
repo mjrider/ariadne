@@ -5,7 +5,7 @@ if (($this->CheckLogin("edit") || $this->CheckLogin("add", ARANYTYPE)) && $this-
 
 	$wgWizFlow[] = array(
 		"title" => $ARnls["thumbnail"],
-		"image" => $AR->dir->images."wizard/data.png",
+		"image" => $AR->assets->images."wizard/data.png",
 		"template" => "dialog.edit.thumb.php",
 		"nolang"=> true,
 	);

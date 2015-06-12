@@ -84,9 +84,9 @@
 <script type="text/javascript" src="<?php echo $yui_base;?>container/container-min.js"></script>
 <script type="text/javascript" src="<?php echo $yui_base;?>autocomplete/autocomplete-min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>explore.css">
-<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>explore.ie6.css"><![endif]-->
-<link rel="stylesheet" type="text/css" href="<?php echo $AR->dir->styles; ?>login.css">
+<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.css">
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>explore.ie6.css"><![endif]-->
+<link rel="stylesheet" type="text/css" href="<?php echo $AR->assets->styles; ?>login.css">
 
 <script type="text/javascript" src="<?php echo  $loadurl .  'ariadne.load.js?' . implode('+', $loadJS ); ?>"></script>
 

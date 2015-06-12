@@ -33,7 +33,7 @@
 
 		$wgWizTitle=$ARnls["change_owner"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/grants.png'; // FIXME: Should probably be owner.png, but that isn't there.
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/grants.png'; // FIXME: Should probably be owner.png, but that isn't there.
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

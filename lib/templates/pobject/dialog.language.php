@@ -14,7 +14,7 @@
 
 		$wgWizTitle=$ARnls["language"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/language.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/language.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

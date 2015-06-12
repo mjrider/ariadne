@@ -15,33 +15,33 @@
 			array(
 				'label' => $ARnls['ariadne:logoff'],
 				'iconalt' => $ARnls['ariadne:logoff'],
-				'icon' => $AR->dir->images . 'icons/medium/logout.png',
+				'icon' => $AR->assets->images . 'icons/medium/logout.png',
 				'href' => $this->make_ariadne_url() .'logoff.php'
 			),
 			array(
 				'label' => $ARnls['ariadne:search'],
 				'iconalt' => $ARnls['ariadne:search'],
-				'icon' => $AR->dir->images . 'icons/small/search.png',
+				'icon' => $AR->assets->images . 'icons/small/search.png',
 				'onclick' => "muze.ariadne.explore.toolbar.searchwindow(); return false;",
 				'href' => $this->make_ariadne_url(). 'dialog.search.php'
 			),
 			array(
 				'label' => $ARnls['ariadne:folders'],
 				'iconalt' => $ARnls['ariadne:folders'],
-				'icon' => $AR->dir->images . 'icons/small/view_tree.png',
+				'icon' => $AR->assets->images . 'icons/small/view_tree.png',
 				'href' => "#",
 				'onclick' => 'muze.ariadne.explore.tree.toggle(); return false;'
 			),
 			array(
 				'label' => $ARnls['ariadne:preferences'],
 				'iconalt' => $ARnls['ariadne:preferences'],
-				'icon' => $AR->dir->images . 'icons/small/preferences.png',
+				'icon' => $AR->assets->images . 'icons/small/preferences.png',
 				'onclick' => "muze.ariadne.explore.arshow('dialog.preferences','" . $this->store->get_config('root').$AR->user->path . "dialog.preferences.php'); return false;",
 				'href' => $this->make_ariadne_url($AR->user->path) . "dialog.preferences.php"
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:iconview'],
-				'icon' => $AR->dir->images . 'icons/small/view_icon.png',
+				'icon' => $AR->assets->images . 'icons/small/view_icon.png',
 				'onclick' => 'return false;',
 				'submenu' => array(
 					array(
@@ -60,7 +60,7 @@
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:help'],
-				'icon' => $AR->dir->images . 'icons/small/help.png',
+				'icon' => $AR->assets->images . 'icons/small/help.png',
 				'onclick' => 'return false;',
 				'submenu' => array(
 					array(
@@ -77,7 +77,7 @@
 			),
 			array(
 				'iconalt' => $ARnls['ariadne:up'],
-				'icon' => $AR->dir->images . 'icons/small/up.png',
+				'icon' => $AR->assets->images . 'icons/small/up.png',
 				//'href' => "javascript:muze.ariadne.explore.view('" . $this->parent . "');"
 				'href' => $this->make_ariadne_url($this->parent) . "explore.html",
 				'onclick' => "muze.ariadne.explore.toolbar.viewparent(); return false;",

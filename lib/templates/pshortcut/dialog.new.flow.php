@@ -12,14 +12,14 @@
 		// inject filename step
 		$wgWizFlow[] = array(
 			"title" => $ARnls["filename"],
-			"image" => $AR->dir->images.'wizard/info.png',
+			"image" => $AR->assets->images.'wizard/info.png',
 			"template" => "dialog.new.filename.php",
 			"nolang" => true
 		);
 
 		$wgWizFlow[] = array(
 			"title" => $ARnls["data"],
-			"image" => $AR->dir->images.'wizard/data.png',
+			"image" => $AR->assets->images.'wizard/data.png',
 			"template" => "dialog.edit.shortcut.form.php"
 		);
 

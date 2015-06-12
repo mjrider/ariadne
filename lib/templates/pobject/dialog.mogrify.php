@@ -31,7 +31,7 @@
 
 		$wgWizTitle=$ARnls["ariadne:mogrify"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/mogrify.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/mogrify.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 //	}

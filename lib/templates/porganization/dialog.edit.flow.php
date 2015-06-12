@@ -9,14 +9,14 @@
 		}
 		$wgWizFlow[] = array(
 			"title" => $ARnls["address"],
-			"image" => $AR->dir->images."wizard/address.png",
+			"image" => $AR->assets->images."wizard/address.png",
 			"template" => "dialog.edit.address.php",
 			"nolang" => true,
 		);
 
 		$wgWizFlow[] = array(
 			"title" => $ARnls["contactinformation"],
-			"image" => $AR->dir->images."wizard/contact.png",
+			"image" => $AR->assets->images."wizard/contact.png",
 			"template" => "dialog.edit.contact.php",
 			"nolang" => true,
 		);

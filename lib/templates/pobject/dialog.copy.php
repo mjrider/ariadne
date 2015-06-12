@@ -34,7 +34,7 @@
 
 		$wgWizTitle=$ARnls["copy"];
 		$wgWizHeader = $wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/copy.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/copy.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 //	}

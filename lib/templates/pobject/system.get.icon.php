@@ -24,7 +24,7 @@
 				$icon=$ARCurrent->arTypeIcons[$realtype][$size];
 			} else {
 				$realsize = ($size == "default") ? "large" : $size;
-				$icon=$AR->dir->images."icons/".$realsize."/unknown.png";
+				$icon=$AR->assets->images."icons/".$realsize."/unknown.png";
 				$ARCurrent->arTypeIcons[$type][$size] = $icon;
 			}
 		}

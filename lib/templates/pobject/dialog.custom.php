@@ -42,7 +42,7 @@
 		$wgWizTitle=$ARnls["customdata"];
 
 		$wgWizHeader=$wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/customfields.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/customfields.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}

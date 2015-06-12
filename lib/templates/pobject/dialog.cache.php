@@ -16,7 +16,7 @@
 
 		$wgWizTitle=$ARnls["caching"];
    		$wgWizHeader=$wgWizTitle;
-		$wgWizHeaderIcon = $AR->dir->images.'icons/large/cache.png';
+		$wgWizHeaderIcon = $AR->assets->images.'icons/large/cache.png';
 
 		include($this->store->get_config("code")."widgets/wizard/yui.wizard.html");
 	}
