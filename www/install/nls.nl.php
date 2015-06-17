@@ -90,6 +90,7 @@
 	$ARnls['install:admin_pass_repeat_help']= 'Voer nogmaals hetzelfde wachtwoord in. Dit is om te bevestigen dat beide wachtwoorden identiek zijn.';
 	$ARnls['install:install_modules']	= 'Installeer extra modules';
 	$ARnls['install:enable_svn']		= 'Zet SVN ondersteuning aan in Ariadne';
+	$ARnls['install:enable_cdn']		= 'Gebruik cdn.ariadne-cms.org';
 	$ARnls['install:enable_workspaces']	= 'Zet Workspace ondersteuning aan in Ariadne (EXPERIMENTEEL)';
 	$ARnls['install:install_libs']		= 'Installeer Ariadne basis-libraries';
 	$ARnls['install:install_demo']		= 'Installeer voorbeeld sites and vormgevingen';

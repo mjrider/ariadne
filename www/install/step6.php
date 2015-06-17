@@ -89,6 +89,7 @@
 			include("conf/loader.conf");
 			include("conf/im.conf");
 			include("conf/svn.conf");
+			include("conf/cdn.conf");
 
 			include("conf/tidy.conf");
 			include("conf/webkit2png.conf");

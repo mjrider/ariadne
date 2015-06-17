@@ -16,6 +16,7 @@
 	} else {
 		$defaults['enable_svn'] = 0;
 	}
+	$defaults['enable_cdn'] = 1;
 
 	$languages = array(
 		"en" => "English",
@@ -55,6 +56,7 @@
 	$install_libs        = getPostVar('install_libs');
 	$install_docs        = getPostVar('install_docs');
 	$enable_svn          = getPostVar('enable_svn');
+	$enable_cdn          = getPostVar('enable_cdn');
 	$enable_workspaces   = getPostVar('enable_workspaces');
 	$downloaded_config   = getPostVar('downloaded_config');
 
@@ -78,6 +80,9 @@
 	if (!isset($enable_svn)) {
 		$enable_svn = $defaults['enable_svn'];
 	}
+	if (!isset($enable_cdn)) {
+		$enable_cdn = $defaults['enable_cdn'];
+	}
 
 	// Add the vars here that will be fed to keepvars.php; These will be passed from step to step.
 	$postvars = array();
@@ -93,6 +98,7 @@
 	$postvars['admin_pass_repeat'] = $admin_pass_repeat;
 	$postvars['ariadne_location']  = $ariadne_location;
 	$postvars['enable_svn']        = $enable_svn;
+	$postvars['enable_cdn']        = $enable_cdn;
 	$postvars['enable_workspaces'] = $enable_workspaces;
 	$postvars['install_demo']      = $install_demo;
 	$postvars['install_libs']      = $install_libs;

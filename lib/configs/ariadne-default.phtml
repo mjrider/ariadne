@@ -71,6 +71,21 @@
 	}
 
 	/**************************************************************************/
+	/* cdn support                                                            */
+	/**************************************************************************/
+
+	if (!isset($AR->cdn)) {
+		$AR->cdn = new object();
+	}
+	if (!isset($AR->cdn->enable)) {
+		$AR->cdn->enable = 0;
+	}
+	if (!isset($AR->cdn->baseurl)) {
+		require_once(AriadneBasePath."/version.php");
+		$AR->cdn->baseurl = '//cdn.ariadne-cms.net/'.$ARversion['version'].'/';
+	}
+
+	/**************************************************************************/
 	/* Debug options: WEB, SYSLOG or BOTH                                     */
 	/**************************************************************************/
 

@@ -111,6 +111,18 @@
 						<label for='install_libs'><?php echo $ARnls['install:install_libs']; ?></label>
 					</div>
 					<?php	}	?>
+					<div class="field checkbox">
+						<?php
+							if ($enable_cdn) {
+								$checked = "checked='checked'";
+							} else {
+								$checked = '';
+							}
+						?>
+						<input type="hidden" name="enable_cdn" value="0">
+						<input <?php echo $checked; ?> type="checkbox" id="enable_cdn" name="enable_cdn" value="1">
+						<label for='enable_cdn'><?php echo $ARnls['install:enable_cdn']; ?></label>
+					</div>
 				</div>
 			</div>
 			<div class="buttons">
