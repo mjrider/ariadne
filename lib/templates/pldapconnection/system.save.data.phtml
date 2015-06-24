@@ -19,11 +19,13 @@
 			$this->data=new object;
 		}
 
+		$this->error = null;
+
 		// unset the properties array, so no properties can be passed to this template.
 		$properties = array();
 
 		if (!$this->getdata("name",$ARConfig->nls->default)) { // default language for this path
-			$this->error=sprintf($ARnls["err:nodatafordefaultlanguage"],$AR->nls->list[$ARConfig->nls->default]);
+			$this->error = ar::error( sprintf($ARnls["err:nodatafordefaultlanguage"],$AR->nls->list[$ARConfig->nls->default]), 1101);
 		} else {
 			if (!$this->data->nls) {
 				$this->data->nls=new object;
@@ -39,7 +41,7 @@
 						$newnlsdata=$this->data->$key;
 					}
 					if (!$this->getdata("name", $key)) {
-						$this->error=sprintf($ARnls["err:nonameentered"],$AR->nls->list[$key]);
+						$this->error = ar::error(sprintf($ARnls["err:nonameentered"],$AR->nls->list[$key]),1114);
 					}
 					$newnlsdata->name=$this->getdata("name", $key);
 					$properties["name"][$count]["value"]=$this->getdata("name", $key);
@@ -71,7 +73,7 @@
 		$this->data->ldap_defsortattr = $this->getdata("ldap_defsortattr", "none");
 		$this->data->mappeduser = $this->getdata("mappeduser", "none");
 
-		$this->save($properties);
+		$arResult = $this->save($properties);
 		$this->ClearCache();
 	}
 ?>

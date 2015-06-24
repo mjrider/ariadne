@@ -304,10 +304,11 @@
 		protected static $throwExceptions = false;
 
 		public function __construct( $message = '', $code = 0, $previous = null ) {
+			if ( $previous && !($previous instanceof \Exception) ) {
+				$previous = new ar_error( $previous );
+			}
 			parent::__construct( (string) $message, (int) $code, $previous );
 			$this->code = $code;
-			$this->message = $message;
-			$this->previous = $previous;
 		}
 
 		public function __call($name, $arguments) {
@@ -332,9 +333,9 @@
 
 		public static function raiseError($message, $code, $previous = null) {
 			if (self::$throwExceptions) {
-				throw new ar_error($message, (int)$code, $previous);
+				throw new ar_error($message, $code, $previous);
 			} else {
-				return new ar_error($message, (int)$code, $previous);
+				return new ar_error($message, $code, $previous);
 			}
 		}
 

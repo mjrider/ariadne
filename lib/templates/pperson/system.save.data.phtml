@@ -18,11 +18,14 @@
 			$this->data=new object;
 		}
 
+		$this->error = null;
+
 		// unset the properties array, so no properties can be passed to this template.
 		$properties = array();
 
 		if (!$this->getdata("lastname","none")) {
-			$this->error=$ARnls["err:nolastnameentered"];
+			$this->error = ar::error( $ARnls["err:nolastnameentered"], 1210);
+			return false;
 		} else {
 			$this->data->initials=$this->getdata("initials", "none");
 			$this->data->firstname=$this->getdata("firstname","none");
@@ -106,7 +109,7 @@
 						);
 			}
 			if (!$this->error) {
-				$this->save($properties);
+				$arResult = $this->save($properties);
 			}
 			global $cache_config;
 			$cachestore=new cache($cache_config);

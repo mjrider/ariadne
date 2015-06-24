@@ -20,6 +20,8 @@
 			$this->data=new object;
 		}
 
+		$this->error = null;
+
 		// unset the properties array, so no properties can be passed to this template.
 		$properties = array();
 
@@ -36,7 +38,8 @@
 				$this->data->priority=$displays->data->priority;
 
 				if (!$this->getdata("name",$ARConfig->nls->default)) { // default language for this path
-					$this->error=sprintf($ARnls["err:nodatafordefaultlanguage"],$AR->nls->list[$ARConfig->nls->default]);
+					$this->error = ar::error( sprintf($ARnls["err:nodatafordefaultlanguage"],$AR->nls->list[$ARConfig->nls->default]), 1101);
+					$arResult = false;
 				} else {
 					if ($ContentEditOptionsPath) {
 						$arEditorSettings=$ARCurrent->editorSettings[$ContentEditOptionsPath];
@@ -191,7 +194,8 @@
 				}
 				$properties["published"][0]["value"]=$this->data->published;
 
-				if ($this->save($properties)) {
+				$arResult = $this->save($properties);
+				if ( !$this->error ) {
 					reset($AR->nls->list);
 					while (list($key, $value)=each($AR->nls->list)) {
 						/* Reset the loop check, when saving lots of languages it might cause a loopcount exceeded */
@@ -208,10 +212,12 @@
 					$cachestore->onObjectSaved($this->id);
 				}
 			} else {
-				$this->error=sprintf($ARnls["err:notascenario"],$scenario);
+				$this->error = ar::error( sprintf($ARnls["err:notascenario"],$scenario), 1201 );
+				$arResult = false;
 			}
 		} else {
-			$this->error=sprintf($ARnls["err:scenerionotfound"],$scenario);
+			$this->error = ar::error( sprintf($ARnls["err:scenerionotfound"],$scenario), 1202 );
+			$arResult = false;
 		}
 	}
 ?>

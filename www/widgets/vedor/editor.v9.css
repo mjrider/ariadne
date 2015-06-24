@@ -16,6 +16,13 @@ table {
 	border: 2px inset buttonface;
 	*border: 0px;
 }
+@media (max-width: 481px) {
+	body.vedor-properties #vdEditPane {
+		display: none;
+	}
+	body.vedor-properties #vdMetaDataSlide {
+	}
+}
 .vdEditorHidden #editorPane {
 	position: fixed;
 	top: 0px;
@@ -210,6 +217,7 @@ a:hover span.deltag {
 		border: 0px;
 		background-color: rgba(255,255,255,0.7);
 	}
+	#vdInsertPopup,
 	#vdInsertHTMLPopup {
 		max-width: 500px;
 		width: 90%;
@@ -226,6 +234,8 @@ a:hover span.deltag {
 		margin-top: -200px;
 		left: 50%;
 		margin-left: -250px;
+	}
+	#vdInsertPopup {
 	}
 	#vdInsertHTMLPopup TEXTAREA {
 		width: 100%;
@@ -272,24 +282,6 @@ a:hover span.deltag {
 	}
 	.vdDialogButton.right {
 		float: right;
-	}
-	#vdInsertPopup {
-		position: absolute;
-		background-color: #CCCCCC;
-		font-family: arial, helvetica, sans-serif;
-		color: black;
-		border: 1px solid black;
-		z-index: 9000;
-		left: 188px;
-		width: 120px;
-		overflow: hidden;
-		padding: 3px;
-	}
-	#vdInsertPopup A.vdButton,
-	#vdInsertPopup A.vdButtonDown,
-	#vdInsertPopup A.vdButtonLarge {
-		float: none;
-		border: 1px solid #CCCCCC;
 	}
 	.vdDropDown {
 		float: left;
@@ -689,10 +681,6 @@ a:hover span.deltag {
 			border-top: 1px solid #888;
 			border-radius: 2px;		
 		}
-		/* .vedor-context-html li::after {
-			content: " \FE65";
-			line-height: 18px;
-		}*/
 		.vedor-context-html li:last-child a.vedor-context-tag::after {
 			content: "";
 		}
@@ -783,10 +771,6 @@ a:hover span.deltag {
 		#vdComposePopupPreview {
 			line-height: 16px;
 		}
-		#vdInsertPopup {
-			top: 0px;
-			left: 50px;
-		}
 		.vedor-cell-width select,
 		.vedor-cell-height select,
 		.vedor-table-width select,
@@ -800,9 +784,8 @@ a:hover span.deltag {
 		.vedor-context-html {
 			xdisplay: none;
 		}
-		#editorPane {
+		#editorPane, #vdMetaDataSlide {
 			-webkit-overflow-scrolling: touch !important;
-			overflow: scroll !important;
 		}
 		/* vedor dropdown list */
 		.vedor-list {
@@ -948,4 +931,54 @@ a:hover span.deltag {
 }
 .vedor-hidden {
 	display: none !important;
+}
+@media (max-width: 481px) {
+	#vdInsertPopup,
+	#vdInsertHTMLPopup {
+		left: 0px;
+		right: 0px;
+		top: 0px;
+		bottom: 94px; /* toolbar + context */
+		max-width: auto;
+		margin-top: auto;
+		margin-left: auto;
+		width: auto;
+	}
+	#vdInsertHTMLPopup .vdContent {
+		padding-bottom: 50px;
+		box-sizing: border-box;
+		height: 100%;
+	}
+	#vdInsertHTMLPopup .vdDialogBody {
+		position: relative;
+	}
+	#vdInsertHTMLSource {
+		height: 100% !important;
+	}
+	#vdInsertHTMLPopup .vdDialogButton {
+		min-width: 0px;
+		padding: 0px 20px;
+	}
+}
+#vdInsertPopup .vdButtonLarge {
+	display: inline-block;
+	margin: 10px;
+	color: #333;
+	text-align: center;
+}
+#vdInsertPopup #vdIcon-muze-gadget-rss:before {
+	content: '\f09e'; /* rss */
+	font-family: FontAwesome;
+	font-size: 40px;
+	height: 64px;
+	width: 64px;
+	text-align: center;
+	line-height: 64px;
+	vertical-align: middle;
+	border: 1px solid #888;
+	background-color: white;
+	border-radius: 3px;
+	margin-bottom: 5px;
+	display: inline-block;
+	color: #666;
 }

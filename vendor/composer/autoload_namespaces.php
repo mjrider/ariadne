@@ -6,7 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'VersionControl_SVN' => array($vendorDir . '/pear/versioncontrol_svn'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
+    'PEAR' => array($vendorDir . '/pear/pear_exception'),
     'JSMin\\' => array($vendorDir . '/mrclay/jsmin-php/src'),
     'ILess' => array($vendorDir . '/mishal/iless/lib'),
+    'Console' => array($vendorDir . '/pear/console_getopt'),
+    'Archive_Tar' => array($vendorDir . '/pear/archive_tar'),
+    '' => array($vendorDir . '/pear/pear-core-minimal/src'),
 );
